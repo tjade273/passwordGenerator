@@ -1,3 +1,4 @@
+
 var password=prompt("Password: ");
 var siteSalt=prompt("Site Salt: ");
 
@@ -8,5 +9,6 @@ var stretched = CryptoJS.PBKDF2(password,salt,{keySize: 256/32});
 var hashedPass = CryptoJS.SHA256(stretched+siteSalt);
 
 var finalPass = CryptoJS.enc.Base64.stringify(hashedPass);
-console.log(finalPass);
-alert(finalPass);
+
+var p = document.getElementById("password");
+p.innerHTML = finalPass;
